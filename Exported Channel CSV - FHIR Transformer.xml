@@ -1,0 +1,581 @@
+<channel version="4.0.1">
+  <id>6b8dc7b7-7730-450f-8b99-a6e51a4e9422</id>
+  <nextMetaDataId>3</nextMetaDataId>
+  <name>CSV - FHIR Transformer</name>
+  <description></description>
+  <revision>21</revision>
+  <sourceConnector version="4.0.1">
+    <metaDataId>0</metaDataId>
+    <name>sourceConnector</name>
+    <properties class="com.mirth.connect.connectors.file.FileReceiverProperties" version="4.0.1">
+      <pluginProperties/>
+      <pollConnectorProperties version="4.0.1">
+        <pollingType>INTERVAL</pollingType>
+        <pollOnStart>false</pollOnStart>
+        <pollingFrequency>5000</pollingFrequency>
+        <pollingHour>0</pollingHour>
+        <pollingMinute>0</pollingMinute>
+        <cronJobs/>
+        <pollConnectorPropertiesAdvanced>
+          <weekly>true</weekly>
+          <inactiveDays>
+            <boolean>false</boolean>
+            <boolean>false</boolean>
+            <boolean>false</boolean>
+            <boolean>false</boolean>
+            <boolean>false</boolean>
+            <boolean>false</boolean>
+            <boolean>false</boolean>
+            <boolean>false</boolean>
+          </inactiveDays>
+          <dayOfMonth>1</dayOfMonth>
+          <allDay>true</allDay>
+          <startingHour>8</startingHour>
+          <startingMinute>0</startingMinute>
+          <endingHour>17</endingHour>
+          <endingMinute>0</endingMinute>
+        </pollConnectorPropertiesAdvanced>
+      </pollConnectorProperties>
+      <sourceConnectorProperties version="4.0.1">
+        <responseVariable>None</responseVariable>
+        <respondAfterProcessing>true</respondAfterProcessing>
+        <processBatch>true</processBatch>
+        <firstResponse>false</firstResponse>
+        <processingThreads>1</processingThreads>
+        <resourceIds class="linked-hash-map">
+          <entry>
+            <string>Default Resource</string>
+            <string>[Default Resource]</string>
+          </entry>
+        </resourceIds>
+        <queueBufferSize>1000</queueBufferSize>
+      </sourceConnectorProperties>
+      <scheme>FILE</scheme>
+      <host>C:/CSV-FHIR-Transformer/Input</host>
+      <fileFilter>*.csv</fileFilter>
+      <regex>false</regex>
+      <directoryRecursion>false</directoryRecursion>
+      <ignoreDot>true</ignoreDot>
+      <anonymous>true</anonymous>
+      <username>anonymous</username>
+      <password>anonymous</password>
+      <timeout>10000</timeout>
+      <secure>true</secure>
+      <passive>true</passive>
+      <validateConnection>true</validateConnection>
+      <afterProcessingAction>MOVE</afterProcessingAction>
+      <moveToDirectory>C:/CSV-FHIR-Transformer/Input/Processed</moveToDirectory>
+      <moveToFileName>Proccessed-${originalFilename}</moveToFileName>
+      <errorReadingAction>NONE</errorReadingAction>
+      <errorResponseAction>AFTER_PROCESSING</errorResponseAction>
+      <errorMoveToDirectory></errorMoveToDirectory>
+      <errorMoveToFileName></errorMoveToFileName>
+      <checkFileAge>true</checkFileAge>
+      <fileAge>1000</fileAge>
+      <fileSizeMinimum>0</fileSizeMinimum>
+      <fileSizeMaximum></fileSizeMaximum>
+      <ignoreFileSizeMaximum>true</ignoreFileSizeMaximum>
+      <sortBy>date</sortBy>
+      <binary>false</binary>
+      <charsetEncoding>DEFAULT_ENCODING</charsetEncoding>
+    </properties>
+    <transformer version="4.0.1">
+      <elements>
+        <com.mirth.connect.plugins.messagebuilder.MessageBuilderStep version="4.0.1">
+          <name>entry [0] - resource - identifier [0] - value (out) &lt;-- row [0] - identifier (in)</name>
+          <sequenceNumber>0</sequenceNumber>
+          <enabled>true</enabled>
+          <messageSegment>tmp[&apos;entry&apos;][0][&apos;resource&apos;][&apos;identifier&apos;][0][&apos;value&apos;]</messageSegment>
+          <mapping>msg[&apos;row&apos;][0][&apos;identifier&apos;].toString()</mapping>
+          <defaultValue></defaultValue>
+          <replacements/>
+        </com.mirth.connect.plugins.messagebuilder.MessageBuilderStep>
+        <com.mirth.connect.plugins.messagebuilder.MessageBuilderStep version="4.0.1">
+          <name>entry [0] - resource - active (out) &lt;-- row [0] - active (in)</name>
+          <sequenceNumber>1</sequenceNumber>
+          <enabled>true</enabled>
+          <messageSegment>tmp[&apos;entry&apos;][0][&apos;resource&apos;][&apos;active&apos;]</messageSegment>
+          <mapping>msg[&apos;row&apos;][0][&apos;active&apos;].toString()</mapping>
+          <defaultValue></defaultValue>
+          <replacements/>
+        </com.mirth.connect.plugins.messagebuilder.MessageBuilderStep>
+        <com.mirth.connect.plugins.messagebuilder.MessageBuilderStep version="4.0.1">
+          <name>entry [0] - resource - name [0] - use (out) &lt;-- row [0] - name.use (in)</name>
+          <sequenceNumber>2</sequenceNumber>
+          <enabled>true</enabled>
+          <messageSegment>tmp[&apos;entry&apos;][0][&apos;resource&apos;][&apos;name&apos;][0][&apos;use&apos;]</messageSegment>
+          <mapping>msg[&apos;row&apos;][0][&apos;name.use&apos;].toString()</mapping>
+          <defaultValue></defaultValue>
+          <replacements/>
+        </com.mirth.connect.plugins.messagebuilder.MessageBuilderStep>
+        <com.mirth.connect.plugins.messagebuilder.MessageBuilderStep version="4.0.1">
+          <name>entry [0] - resource - name [0] - family (out) &lt;-- row [0] - name.family (in)</name>
+          <sequenceNumber>3</sequenceNumber>
+          <enabled>true</enabled>
+          <messageSegment>tmp[&apos;entry&apos;][0][&apos;resource&apos;][&apos;name&apos;][0][&apos;family&apos;]</messageSegment>
+          <mapping>msg[&apos;row&apos;][0][&apos;name.family&apos;].toString()</mapping>
+          <defaultValue></defaultValue>
+          <replacements/>
+        </com.mirth.connect.plugins.messagebuilder.MessageBuilderStep>
+        <com.mirth.connect.plugins.messagebuilder.MessageBuilderStep version="4.0.1">
+          <name>entry [0] - resource - name [0] - given [0] -  (out) &lt;-- row [0] - name.given (in)</name>
+          <sequenceNumber>4</sequenceNumber>
+          <enabled>true</enabled>
+          <messageSegment>tmp[&apos;entry&apos;][0][&apos;resource&apos;][&apos;name&apos;][0][&apos;given&apos;][0]</messageSegment>
+          <mapping>msg[&apos;row&apos;][0][&apos;name.given&apos;].toString()</mapping>
+          <defaultValue></defaultValue>
+          <replacements/>
+        </com.mirth.connect.plugins.messagebuilder.MessageBuilderStep>
+        <com.mirth.connect.plugins.messagebuilder.MessageBuilderStep version="4.0.1">
+          <name>entry [0] - resource - telecom [0] - system (out) &lt;-- row [0] - telecom.system (in)</name>
+          <sequenceNumber>5</sequenceNumber>
+          <enabled>true</enabled>
+          <messageSegment>tmp[&apos;entry&apos;][0][&apos;resource&apos;][&apos;telecom&apos;][0][&apos;system&apos;]</messageSegment>
+          <mapping>msg[&apos;row&apos;][0][&apos;telecom.system&apos;].toString()</mapping>
+          <defaultValue></defaultValue>
+          <replacements/>
+        </com.mirth.connect.plugins.messagebuilder.MessageBuilderStep>
+        <com.mirth.connect.plugins.messagebuilder.MessageBuilderStep version="4.0.1">
+          <name>entry [0] - resource - telecom [0] - value (out) &lt;-- row [0] - telecom.value (in)</name>
+          <sequenceNumber>6</sequenceNumber>
+          <enabled>true</enabled>
+          <messageSegment>tmp[&apos;entry&apos;][0][&apos;resource&apos;][&apos;telecom&apos;][0][&apos;value&apos;]</messageSegment>
+          <mapping>msg[&apos;row&apos;][0][&apos;telecom.value&apos;].toString()</mapping>
+          <defaultValue></defaultValue>
+          <replacements/>
+        </com.mirth.connect.plugins.messagebuilder.MessageBuilderStep>
+        <com.mirth.connect.plugins.messagebuilder.MessageBuilderStep version="4.0.1">
+          <name>entry [0] - resource - telecom [0] - use (out) &lt;-- row [0] - telecom.use (in)</name>
+          <sequenceNumber>7</sequenceNumber>
+          <enabled>true</enabled>
+          <messageSegment>tmp[&apos;entry&apos;][0][&apos;resource&apos;][&apos;telecom&apos;][0][&apos;use&apos;]</messageSegment>
+          <mapping>msg[&apos;row&apos;][0][&apos;telecom.use&apos;].toString()</mapping>
+          <defaultValue></defaultValue>
+          <replacements/>
+        </com.mirth.connect.plugins.messagebuilder.MessageBuilderStep>
+        <com.mirth.connect.plugins.messagebuilder.MessageBuilderStep version="4.0.1">
+          <name>entry [0] - resource - gender (out) &lt;-- row [0] - gender (in)</name>
+          <sequenceNumber>8</sequenceNumber>
+          <enabled>true</enabled>
+          <messageSegment>tmp[&apos;entry&apos;][0][&apos;resource&apos;][&apos;gender&apos;]</messageSegment>
+          <mapping>msg[&apos;row&apos;][0][&apos;gender&apos;].toString()</mapping>
+          <defaultValue></defaultValue>
+          <replacements/>
+        </com.mirth.connect.plugins.messagebuilder.MessageBuilderStep>
+        <com.mirth.connect.plugins.messagebuilder.MessageBuilderStep version="4.0.1">
+          <name>entry [0] - resource - birthDate (out) &lt;-- row [0] - birthDate (in)</name>
+          <sequenceNumber>9</sequenceNumber>
+          <enabled>true</enabled>
+          <messageSegment>tmp[&apos;entry&apos;][0][&apos;resource&apos;][&apos;birthDate&apos;]</messageSegment>
+          <mapping>msg[&apos;row&apos;][0][&apos;birthDate&apos;].toString()</mapping>
+          <defaultValue></defaultValue>
+          <replacements/>
+        </com.mirth.connect.plugins.messagebuilder.MessageBuilderStep>
+        <com.mirth.connect.plugins.messagebuilder.MessageBuilderStep version="4.0.1">
+          <name>entry [0] - resource - deceasedBoolean (out) &lt;-- row [0] - deceased.Boolean (in)</name>
+          <sequenceNumber>10</sequenceNumber>
+          <enabled>true</enabled>
+          <messageSegment>tmp[&apos;entry&apos;][0][&apos;resource&apos;][&apos;deceasedBoolean&apos;]</messageSegment>
+          <mapping>msg[&apos;row&apos;][0][&apos;deceased.Boolean&apos;].toString()</mapping>
+          <defaultValue></defaultValue>
+          <replacements/>
+        </com.mirth.connect.plugins.messagebuilder.MessageBuilderStep>
+        <com.mirth.connect.plugins.messagebuilder.MessageBuilderStep version="4.0.1">
+          <name>entry [0] - resource - address [0] - use (out) &lt;-- row [0] - address.use (in)</name>
+          <sequenceNumber>11</sequenceNumber>
+          <enabled>true</enabled>
+          <messageSegment>tmp[&apos;entry&apos;][0][&apos;resource&apos;][&apos;address&apos;][0][&apos;use&apos;]</messageSegment>
+          <mapping>msg[&apos;row&apos;][0][&apos;address.use&apos;].toString()</mapping>
+          <defaultValue></defaultValue>
+          <replacements/>
+        </com.mirth.connect.plugins.messagebuilder.MessageBuilderStep>
+        <com.mirth.connect.plugins.messagebuilder.MessageBuilderStep version="4.0.1">
+          <name>entry [0] - resource - address [0] - type (out) &lt;-- row [0] - address.type (in)</name>
+          <sequenceNumber>12</sequenceNumber>
+          <enabled>true</enabled>
+          <messageSegment>tmp[&apos;entry&apos;][0][&apos;resource&apos;][&apos;address&apos;][0][&apos;type&apos;]</messageSegment>
+          <mapping>msg[&apos;row&apos;][0][&apos;address.type&apos;].toString()</mapping>
+          <defaultValue></defaultValue>
+          <replacements/>
+        </com.mirth.connect.plugins.messagebuilder.MessageBuilderStep>
+        <com.mirth.connect.plugins.messagebuilder.MessageBuilderStep version="4.0.1">
+          <name>entry [0] - resource - address [0] - line [0] -  (out) &lt;-- row [0] - address.line (in)</name>
+          <sequenceNumber>13</sequenceNumber>
+          <enabled>true</enabled>
+          <messageSegment>tmp[&apos;entry&apos;][0][&apos;resource&apos;][&apos;address&apos;][0][&apos;line&apos;][0]</messageSegment>
+          <mapping>msg[&apos;row&apos;][0][&apos;address.line&apos;].toString()</mapping>
+          <defaultValue></defaultValue>
+          <replacements/>
+        </com.mirth.connect.plugins.messagebuilder.MessageBuilderStep>
+        <com.mirth.connect.plugins.messagebuilder.MessageBuilderStep version="4.0.1">
+          <name>entry [0] - resource - address [0] - city (out) &lt;-- row [0] - address.city (in)</name>
+          <sequenceNumber>14</sequenceNumber>
+          <enabled>true</enabled>
+          <messageSegment>tmp[&apos;entry&apos;][0][&apos;resource&apos;][&apos;address&apos;][0][&apos;city&apos;]</messageSegment>
+          <mapping>msg[&apos;row&apos;][0][&apos;address.city&apos;].toString()</mapping>
+          <defaultValue></defaultValue>
+          <replacements/>
+        </com.mirth.connect.plugins.messagebuilder.MessageBuilderStep>
+        <com.mirth.connect.plugins.messagebuilder.MessageBuilderStep version="4.0.1">
+          <name>entry [0] - resource - address [0] - district (out) &lt;-- row [0] - address.district (in)</name>
+          <sequenceNumber>15</sequenceNumber>
+          <enabled>true</enabled>
+          <messageSegment>tmp[&apos;entry&apos;][0][&apos;resource&apos;][&apos;address&apos;][0][&apos;district&apos;]</messageSegment>
+          <mapping>msg[&apos;row&apos;][0][&apos;address.district&apos;].toString()</mapping>
+          <defaultValue></defaultValue>
+          <replacements/>
+        </com.mirth.connect.plugins.messagebuilder.MessageBuilderStep>
+        <com.mirth.connect.plugins.messagebuilder.MessageBuilderStep version="4.0.1">
+          <name>entry [0] - resource - address [0] - state (out) &lt;-- row [0] - address.state (in)</name>
+          <sequenceNumber>16</sequenceNumber>
+          <enabled>true</enabled>
+          <messageSegment>tmp[&apos;entry&apos;][0][&apos;resource&apos;][&apos;address&apos;][0][&apos;state&apos;]</messageSegment>
+          <mapping>msg[&apos;row&apos;][0][&apos;address.state&apos;].toString()</mapping>
+          <defaultValue></defaultValue>
+          <replacements/>
+        </com.mirth.connect.plugins.messagebuilder.MessageBuilderStep>
+        <com.mirth.connect.plugins.messagebuilder.MessageBuilderStep version="4.0.1">
+          <name>entry [0] - resource - address [0] - postalCode (out) &lt;-- row [0] - address.postalCode (in)</name>
+          <sequenceNumber>17</sequenceNumber>
+          <enabled>true</enabled>
+          <messageSegment>tmp[&apos;entry&apos;][0][&apos;resource&apos;][&apos;address&apos;][0][&apos;postalCode&apos;]</messageSegment>
+          <mapping>msg[&apos;row&apos;][0][&apos;address.postalCode&apos;].toString()</mapping>
+          <defaultValue></defaultValue>
+          <replacements/>
+        </com.mirth.connect.plugins.messagebuilder.MessageBuilderStep>
+        <com.mirth.connect.plugins.messagebuilder.MessageBuilderStep version="4.0.1">
+          <name>entry [0] - resource - maritalStatus - coding [0] - code (out) &lt;-- row [0] - maritalStatus.code (in)</name>
+          <sequenceNumber>18</sequenceNumber>
+          <enabled>true</enabled>
+          <messageSegment>tmp[&apos;entry&apos;][0][&apos;resource&apos;][&apos;maritalStatus&apos;][&apos;coding&apos;][0][&apos;code&apos;]</messageSegment>
+          <mapping>msg[&apos;row&apos;][0][&apos;maritalStatus.code&apos;].toString()</mapping>
+          <defaultValue></defaultValue>
+          <replacements/>
+        </com.mirth.connect.plugins.messagebuilder.MessageBuilderStep>
+        <com.mirth.connect.plugins.messagebuilder.MessageBuilderStep version="4.0.1">
+          <name>entry [0] - resource - communication [0] - language - coding [0] - code (out) &lt;-- row [0] - communication.code (in)</name>
+          <sequenceNumber>19</sequenceNumber>
+          <enabled>true</enabled>
+          <messageSegment>tmp[&apos;entry&apos;][0][&apos;resource&apos;][&apos;communication&apos;][0][&apos;language&apos;][&apos;coding&apos;][0][&apos;code&apos;]</messageSegment>
+          <mapping>msg[&apos;row&apos;][0][&apos;communication.code&apos;].toString()</mapping>
+          <defaultValue></defaultValue>
+          <replacements/>
+        </com.mirth.connect.plugins.messagebuilder.MessageBuilderStep>
+        <com.mirth.connect.plugins.messagebuilder.MessageBuilderStep version="4.0.1">
+          <name>entry [0] - resource - communication [0] - language - text (out) &lt;-- row [0] - communication.text (in)</name>
+          <sequenceNumber>20</sequenceNumber>
+          <enabled>true</enabled>
+          <messageSegment>tmp[&apos;entry&apos;][0][&apos;resource&apos;][&apos;communication&apos;][0][&apos;language&apos;][&apos;text&apos;]</messageSegment>
+          <mapping>msg[&apos;row&apos;][0][&apos;communication.text&apos;].toString()</mapping>
+          <defaultValue></defaultValue>
+          <replacements/>
+        </com.mirth.connect.plugins.messagebuilder.MessageBuilderStep>
+      </elements>
+      <inboundTemplate encoding="base64">aWRlbnRpZmllcixhY3RpdmUsbmFtZS51c2UsbmFtZS5mYW1pbHksbmFtZS5naXZlbix0ZWxlY29tLnN5c3RlbSx0ZWxlY29tLnZhbHVlLHRlbGVjb20udXNlLGdlbmRlcixiaXJ0aERhdGUsZGVjZWFzZWQuQm9vbGVhbixhZGRyZXNzLnVzZSxhZGRyZXNzLnR5cGUsYWRkcmVzcy5saW5lLGFkZHJlc3MuY2l0eSxhZGRyZXNzLmRpc3RyaWN0LGFkZHJlc3Muc3RhdGUsYWRkcmVzcy5wb3N0YWxDb2RlLG1hcml0YWxTdGF0dXMuY29kZSxjb21tdW5pY2F0aW9uLmNvZGUsY29tbXVuaWNhdGlvbi50ZXh0CjEyMzQ1Njc4OSx0cnVlLG9mZmljaWFsLE11c3Rlcm1hbixFdmEscGhvbmUsKzQ5IDE3OSA5OTk5MTIzLG1vYmlsZSxmZW1hbGUsMTk5MS0wMS0wMSxmYWxzZSxob21lLGJvdGgsRXhhbXBsZSBTdHIuIDk5LENvbG9nbmUsQ2l0eSBDZW50ZXIsTm9ydGggUmhpbmUtV2VzdHBoYWxpYSw1MDkzMSxTLGRlLEdlcm1hbg==</inboundTemplate>
+      <outboundTemplate encoding="base64">ewogICAgInJlc291cmNlVHlwZSI6ICJCdW5kbGUiLAogICAgInR5cGUiOiAidHJhbnNhY3Rpb24iLAogICAgImVudHJ5IjogWwogICAgICB7CiAgICAgICAgInJlc291cmNlIjogewogICAgICAgICAgICAicmVzb3VyY2VUeXBlIiA6ICJQYXRpZW50IiwKICAgICAgICAgICAgImlkZW50aWZpZXIiIDogW3sKICAgICAgICAgICAgICAidXNlIiA6ICJ1c3VhbCIsCiAgICAgICAgICAgICAgInR5cGUiIDogewogICAgICAgICAgICAgICAgImNvZGluZyIgOiBbewogICAgICAgICAgICAgICAgICAic3lzdGVtIiA6ICJodHRwOi8vdGVybWlub2xvZ3kuaGw3Lm9yZy9Db2RlU3lzdGVtL3YyLTAyMDMiLAogICAgICAgICAgICAgICAgICAiY29kZSIgOiAiTVIiCiAgICAgICAgICAgICAgICB9XQogICAgICAgICAgICAgIH0sCiAgICAgICAgICAgICAgInZhbHVlIiA6ICIxMjM0NTY3ODkiCiAgICAgICAgICAgIH1dLAogICAgICAgICAgICAiYWN0aXZlIiA6IHRydWUsCiAgICAgICAgICAgICJuYW1lIiA6IFt7CiAgICAgICAgICAgICAgInVzZSIgOiAib2ZmaWNpYWwiLAogICAgICAgICAgICAgICJmYW1pbHkiIDogIk11c3Rlcm1hbiIsCiAgICAgICAgICAgICAgImdpdmVuIiA6IFsiRXZhIl0KICAgICAgICAgICAgfV0sCiAgICAgICAgICAgICJ0ZWxlY29tIiA6IFt7CiAgICAgICAgICAgICAgICAic3lzdGVtIiA6ICJwaG9uZSIsCiAgICAgICAgICAgICAgICAidmFsdWUiIDogIis0OSAxNzkgOTk5OTEyMyIsCiAgICAgICAgICAgICAgICAidXNlIiA6ICJtb2JpbGUiCiAgICAgICAgICAgICAgfV0sCiAgICAgICAgICAgICJnZW5kZXIiIDogImZlbWFsZSIsCiAgICAgICAgICAgICJiaXJ0aERhdGUiIDogIjE5OTEtMDEtMDEiLAogICAgICAgICAgICAiZGVjZWFzZWRCb29sZWFuIiA6IGZhbHNlLAogICAgICAgICAgICAiYWRkcmVzcyIgOiBbewogICAgICAgICAgICAgICJ1c2UiIDogImhvbWUiLAogICAgICAgICAgICAgICJ0eXBlIiA6ICJib3RoIiwKICAgICAgICAgICAgICAibGluZSIgOiBbIkV4YW1wbGUgU3RyLiA5OSJdLAogICAgICAgICAgICAgICJjaXR5IiA6ICJDb2xvZ25lIiwKICAgICAgICAgICAgICAiZGlzdHJpY3QiIDogIkNvbG9nbmUiLAogICAgICAgICAgICAgICJzdGF0ZSIgOiAiTm9ydGggUmhpbmUtV2VzdHBoYWxpYSIsCiAgICAgICAgICAgICAgInBvc3RhbENvZGUiIDogIjUwOTMxIgogICAgICAgICAgICB9XSwKICAgICAgICAgICAgIm1hcml0YWxTdGF0dXMiOiB7CiAgICAgICAgICAgICAgImNvZGluZyI6ICBbCiAgICAgICAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICAgICAgICJzeXN0ZW0iOiAiaHR0cDovL3Rlcm1pbm9sb2d5LmhsNy5vcmcvQ29kZVN5c3RlbS92My1NYXJpdGFsU3RhdHVzIiwKICAgICAgICAgICAgICAgICAgICAgICJjb2RlIjogIlMiCiAgICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgICBdCiAgICAgICAgICAgIH0sCiAgICAgICAgICAiY29tbXVuaWNhdGlvbiI6ICBbCiAgICAgICAgICAgICAgewogICAgICAgICAgICAgICAgICAibGFuZ3VhZ2UiOiB7CiAgICAgICAgICAgICAgICAgICAgICAiY29kaW5nIjogIFsKICAgICAgICAgICAgICAgICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICJzeXN0ZW0iOiAiaHR0cDovL3Rvb2xzLmlldGYub3JnL2h0bWwvYmNwNDciLAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAiY29kZSI6ICJkZSIKICAgICAgICAgICAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgICAgICAgICAgICBdLAogICAgICAgICAgICAgICAgICAgICAgInRleHQiOiAiR2VybWFuIgogICAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgICAgfQogICAgICAgICAgICBdCiAgICAgICAgICB9LAogICAgICAgICJyZXF1ZXN0IjogewogICAgICAgICAgIm1ldGhvZCI6ICJQT1NUIiwKICAgICAgICAgICJ1cmwiOiAiUGF0aWVudCIKICAgICAgICB9CiAgICAgIH0KICAgIF0KfQ==</outboundTemplate>
+      <inboundDataType>DELIMITED</inboundDataType>
+      <outboundDataType>JSON</outboundDataType>
+      <inboundProperties class="com.mirth.connect.plugins.datatypes.delimited.DelimitedDataTypeProperties" version="4.0.1">
+        <serializationProperties class="com.mirth.connect.plugins.datatypes.delimited.DelimitedSerializationProperties" version="4.0.1">
+          <columnDelimiter>,</columnDelimiter>
+          <recordDelimiter>\n</recordDelimiter>
+          <quoteToken>&quot;</quoteToken>
+          <escapeWithDoubleQuote>true</escapeWithDoubleQuote>
+          <quoteEscapeToken>\</quoteEscapeToken>
+          <columnNames>
+            <string>identifier</string>
+            <string>active</string>
+            <string>name.use</string>
+            <string>name.family</string>
+            <string>name.given</string>
+            <string>telecom.system</string>
+            <string>telecom.value</string>
+            <string>telecom.use</string>
+            <string>gender</string>
+            <string>birthDate</string>
+            <string>deceased.Boolean</string>
+            <string>address.use</string>
+            <string>address.type</string>
+            <string>address.line</string>
+            <string>address.city</string>
+            <string>address.district</string>
+            <string>address.state</string>
+            <string>address.postalCode</string>
+            <string>maritalStatus.code</string>
+            <string>communication.code</string>
+            <string>communication.text</string>
+          </columnNames>
+          <numberedRows>false</numberedRows>
+          <ignoreCR>true</ignoreCR>
+        </serializationProperties>
+        <deserializationProperties class="com.mirth.connect.plugins.datatypes.delimited.DelimitedDeserializationProperties" version="4.0.1">
+          <columnDelimiter>,</columnDelimiter>
+          <recordDelimiter>\n</recordDelimiter>
+          <quoteToken>&quot;</quoteToken>
+          <escapeWithDoubleQuote>true</escapeWithDoubleQuote>
+          <quoteEscapeToken>\</quoteEscapeToken>
+        </deserializationProperties>
+        <batchProperties class="com.mirth.connect.plugins.datatypes.delimited.DelimitedBatchProperties" version="4.0.1">
+          <splitType>Record</splitType>
+          <batchSkipRecords>1</batchSkipRecords>
+          <batchMessageDelimiter></batchMessageDelimiter>
+          <batchMessageDelimiterIncluded>false</batchMessageDelimiterIncluded>
+          <batchGroupingColumn></batchGroupingColumn>
+          <batchScript></batchScript>
+        </batchProperties>
+      </inboundProperties>
+      <outboundProperties class="com.mirth.connect.plugins.datatypes.json.JSONDataTypeProperties" version="4.0.1">
+        <batchProperties class="com.mirth.connect.plugins.datatypes.json.JSONBatchProperties" version="4.0.1">
+          <splitType>JavaScript</splitType>
+          <batchScript></batchScript>
+        </batchProperties>
+      </outboundProperties>
+    </transformer>
+    <filter version="4.0.1">
+      <elements/>
+    </filter>
+    <transportName>File Reader</transportName>
+    <mode>SOURCE</mode>
+    <enabled>true</enabled>
+    <waitForPrevious>true</waitForPrevious>
+  </sourceConnector>
+  <destinationConnectors>
+    <connector version="4.0.1">
+      <metaDataId>1</metaDataId>
+      <name>JSON File Writer</name>
+      <properties class="com.mirth.connect.connectors.file.FileDispatcherProperties" version="4.0.1">
+        <pluginProperties/>
+        <destinationConnectorProperties version="4.0.1">
+          <queueEnabled>false</queueEnabled>
+          <sendFirst>false</sendFirst>
+          <retryIntervalMillis>10000</retryIntervalMillis>
+          <regenerateTemplate>false</regenerateTemplate>
+          <retryCount>0</retryCount>
+          <rotate>false</rotate>
+          <includeFilterTransformer>false</includeFilterTransformer>
+          <threadCount>1</threadCount>
+          <threadAssignmentVariable></threadAssignmentVariable>
+          <validateResponse>false</validateResponse>
+          <resourceIds class="linked-hash-map">
+            <entry>
+              <string>Default Resource</string>
+              <string>[Default Resource]</string>
+            </entry>
+          </resourceIds>
+          <queueBufferSize>1000</queueBufferSize>
+          <reattachAttachments>true</reattachAttachments>
+        </destinationConnectorProperties>
+        <scheme>FILE</scheme>
+        <host>C:/CSV-FHIR-Transformer/Output</host>
+        <outputPattern>${originalFilename}${COUNT}.json</outputPattern>
+        <anonymous>true</anonymous>
+        <username>anonymous</username>
+        <password>anonymous</password>
+        <timeout>10000</timeout>
+        <keepConnectionOpen>true</keepConnectionOpen>
+        <maxIdleTime>0</maxIdleTime>
+        <secure>true</secure>
+        <passive>true</passive>
+        <validateConnection>true</validateConnection>
+        <outputAppend>true</outputAppend>
+        <errorOnExists>false</errorOnExists>
+        <temporary>false</temporary>
+        <binary>false</binary>
+        <charsetEncoding>DEFAULT_ENCODING</charsetEncoding>
+        <template>${JsonUtil.prettyPrint(${message.encodedData})}</template>
+      </properties>
+      <transformer version="4.0.1">
+        <elements/>
+        <inboundDataType>JSON</inboundDataType>
+        <outboundDataType>JSON</outboundDataType>
+        <inboundProperties class="com.mirth.connect.plugins.datatypes.json.JSONDataTypeProperties" version="4.0.1">
+          <batchProperties class="com.mirth.connect.plugins.datatypes.json.JSONBatchProperties" version="4.0.1">
+            <splitType>JavaScript</splitType>
+            <batchScript></batchScript>
+          </batchProperties>
+        </inboundProperties>
+        <outboundProperties class="com.mirth.connect.plugins.datatypes.json.JSONDataTypeProperties" version="4.0.1">
+          <batchProperties class="com.mirth.connect.plugins.datatypes.json.JSONBatchProperties" version="4.0.1">
+            <splitType>JavaScript</splitType>
+            <batchScript></batchScript>
+          </batchProperties>
+        </outboundProperties>
+      </transformer>
+      <responseTransformer version="4.0.1">
+        <elements/>
+        <inboundDataType>JSON</inboundDataType>
+        <outboundDataType>JSON</outboundDataType>
+        <inboundProperties class="com.mirth.connect.plugins.datatypes.json.JSONDataTypeProperties" version="4.0.1">
+          <batchProperties class="com.mirth.connect.plugins.datatypes.json.JSONBatchProperties" version="4.0.1">
+            <splitType>JavaScript</splitType>
+            <batchScript></batchScript>
+          </batchProperties>
+        </inboundProperties>
+        <outboundProperties class="com.mirth.connect.plugins.datatypes.json.JSONDataTypeProperties" version="4.0.1">
+          <batchProperties class="com.mirth.connect.plugins.datatypes.json.JSONBatchProperties" version="4.0.1">
+            <splitType>JavaScript</splitType>
+            <batchScript></batchScript>
+          </batchProperties>
+        </outboundProperties>
+      </responseTransformer>
+      <filter version="4.0.1">
+        <elements/>
+      </filter>
+      <transportName>File Writer</transportName>
+      <mode>DESTINATION</mode>
+      <enabled>true</enabled>
+      <waitForPrevious>true</waitForPrevious>
+    </connector>
+    <connector version="4.0.1">
+      <metaDataId>2</metaDataId>
+      <name>HTTP Sender</name>
+      <properties class="com.mirth.connect.connectors.http.HttpDispatcherProperties" version="4.0.1">
+        <pluginProperties/>
+        <destinationConnectorProperties version="4.0.1">
+          <queueEnabled>false</queueEnabled>
+          <sendFirst>false</sendFirst>
+          <retryIntervalMillis>10000</retryIntervalMillis>
+          <regenerateTemplate>false</regenerateTemplate>
+          <retryCount>0</retryCount>
+          <rotate>false</rotate>
+          <includeFilterTransformer>false</includeFilterTransformer>
+          <threadCount>1</threadCount>
+          <threadAssignmentVariable></threadAssignmentVariable>
+          <validateResponse>false</validateResponse>
+          <resourceIds class="linked-hash-map">
+            <entry>
+              <string>Default Resource</string>
+              <string>[Default Resource]</string>
+            </entry>
+          </resourceIds>
+          <queueBufferSize>1000</queueBufferSize>
+          <reattachAttachments>true</reattachAttachments>
+        </destinationConnectorProperties>
+        <host>http://hapi.fhir.org/baseR4</host>
+        <useProxyServer>false</useProxyServer>
+        <proxyAddress></proxyAddress>
+        <proxyPort></proxyPort>
+        <method>post</method>
+        <headers class="linked-hash-map"/>
+        <parameters class="linked-hash-map"/>
+        <useHeadersVariable>false</useHeadersVariable>
+        <headersVariable></headersVariable>
+        <useParametersVariable>false</useParametersVariable>
+        <parametersVariable></parametersVariable>
+        <responseXmlBody>false</responseXmlBody>
+        <responseParseMultipart>true</responseParseMultipart>
+        <responseIncludeMetadata>false</responseIncludeMetadata>
+        <responseBinaryMimeTypes>application/.*(?&lt;!json|xml)$|image/.*|video/.*|audio/.*</responseBinaryMimeTypes>
+        <responseBinaryMimeTypesRegex>true</responseBinaryMimeTypesRegex>
+        <multipart>false</multipart>
+        <useAuthentication>false</useAuthentication>
+        <authenticationType>Basic</authenticationType>
+        <usePreemptiveAuthentication>false</usePreemptiveAuthentication>
+        <username></username>
+        <password></password>
+        <content>${JsonUtil.prettyPrint(${message.encodedData})}</content>
+        <contentType>application/json</contentType>
+        <dataTypeBinary>false</dataTypeBinary>
+        <charset>UTF-8</charset>
+        <socketTimeout>30000</socketTimeout>
+      </properties>
+      <transformer version="4.0.1">
+        <elements/>
+        <inboundDataType>JSON</inboundDataType>
+        <outboundDataType>JSON</outboundDataType>
+        <inboundProperties class="com.mirth.connect.plugins.datatypes.json.JSONDataTypeProperties" version="4.0.1">
+          <batchProperties class="com.mirth.connect.plugins.datatypes.json.JSONBatchProperties" version="4.0.1">
+            <splitType>JavaScript</splitType>
+            <batchScript></batchScript>
+          </batchProperties>
+        </inboundProperties>
+        <outboundProperties class="com.mirth.connect.plugins.datatypes.json.JSONDataTypeProperties" version="4.0.1">
+          <batchProperties class="com.mirth.connect.plugins.datatypes.json.JSONBatchProperties" version="4.0.1">
+            <splitType>JavaScript</splitType>
+            <batchScript></batchScript>
+          </batchProperties>
+        </outboundProperties>
+      </transformer>
+      <responseTransformer version="4.0.1">
+        <elements/>
+        <inboundDataType>JSON</inboundDataType>
+        <outboundDataType>JSON</outboundDataType>
+        <inboundProperties class="com.mirth.connect.plugins.datatypes.json.JSONDataTypeProperties" version="4.0.1">
+          <batchProperties class="com.mirth.connect.plugins.datatypes.json.JSONBatchProperties" version="4.0.1">
+            <splitType>JavaScript</splitType>
+            <batchScript></batchScript>
+          </batchProperties>
+        </inboundProperties>
+        <outboundProperties class="com.mirth.connect.plugins.datatypes.json.JSONDataTypeProperties" version="4.0.1">
+          <batchProperties class="com.mirth.connect.plugins.datatypes.json.JSONBatchProperties" version="4.0.1">
+            <splitType>JavaScript</splitType>
+            <batchScript></batchScript>
+          </batchProperties>
+        </outboundProperties>
+      </responseTransformer>
+      <filter version="4.0.1">
+        <elements/>
+      </filter>
+      <transportName>HTTP Sender</transportName>
+      <mode>DESTINATION</mode>
+      <enabled>true</enabled>
+      <waitForPrevious>true</waitForPrevious>
+    </connector>
+  </destinationConnectors>
+  <preprocessingScript>// Modify the message variable below to pre process data
+return message;</preprocessingScript>
+  <postprocessingScript>// This script executes once after a message has been processed
+// Responses returned from here will be stored as &quot;Postprocessor&quot; in the response map
+return;</postprocessingScript>
+  <deployScript>// This script executes once when the channel is deployed
+// You only have access to the globalMap and globalChannelMap here to persist data
+return;</deployScript>
+  <undeployScript>// This script executes once when the channel is undeployed
+// You only have access to the globalMap and globalChannelMap here to persist data
+return;</undeployScript>
+  <properties version="4.0.1">
+    <clearGlobalChannelMap>true</clearGlobalChannelMap>
+    <messageStorageMode>DEVELOPMENT</messageStorageMode>
+    <encryptData>false</encryptData>
+    <removeContentOnCompletion>false</removeContentOnCompletion>
+    <removeOnlyFilteredOnCompletion>false</removeOnlyFilteredOnCompletion>
+    <removeAttachmentsOnCompletion>false</removeAttachmentsOnCompletion>
+    <initialState>STARTED</initialState>
+    <storeAttachments>true</storeAttachments>
+    <metaDataColumns>
+      <metaDataColumn>
+        <name>SOURCE</name>
+        <type>STRING</type>
+        <mappingName>mirth_source</mappingName>
+      </metaDataColumn>
+      <metaDataColumn>
+        <name>TYPE</name>
+        <type>STRING</type>
+        <mappingName>mirth_type</mappingName>
+      </metaDataColumn>
+    </metaDataColumns>
+    <attachmentProperties version="4.0.1">
+      <type>None</type>
+      <properties/>
+    </attachmentProperties>
+    <resourceIds class="linked-hash-map">
+      <entry>
+        <string>Default Resource</string>
+        <string>[Default Resource]</string>
+      </entry>
+    </resourceIds>
+  </properties>
+  <exportData>
+    <metadata>
+      <enabled>true</enabled>
+      <lastModified>
+        <time>1670113820971</time>
+        <timezone>Europe/Berlin</timezone>
+      </lastModified>
+      <pruningSettings>
+        <archiveEnabled>true</archiveEnabled>
+        <pruneErroredMessages>false</pruneErroredMessages>
+      </pruningSettings>
+    </metadata>
+  </exportData>
+</channel>
