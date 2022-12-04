@@ -1,0 +1,2 @@
+identifier,active,name.use,name.family,name.given,telecom.system,telecom.value,telecom.use,gender,birthDate,deceased.Boolean,address.use,address.type,address.line,address.city,address.district,address.state,address.postalCode,maritalStatus.code,communication.code,communication.text
+123456789,true,official,Musterman,Eva,phone,+49 179 9999123,mobile,female,1991-01-01,false,home,both,Example Str. 99,Cologne,City Center,North Rhine-Westphalia,50931,S,de,German
