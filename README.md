@@ -3,7 +3,7 @@ Repository für den Workshop zur DMEA - Satellitenveranstaltung 2023 von GMDS un
 
 ### Workshop Content:
 1. Objectives and Usecases.
-2. Intro on Mirth Connect
+2. Intro to Mirth Connect
 3. Exercise 0: (Demo) Mirth Connect GUI
 4. Exercise 1.1: (Hands-On) Create simple Patient from CSV as .json files.
 5. Exercise 1.2: (Hands-On) Modify E1.1 to create Transaction bundles and POST them to FHIR server.
