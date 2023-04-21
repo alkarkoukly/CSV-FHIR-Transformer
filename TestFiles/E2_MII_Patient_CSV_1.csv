@@ -1,0 +1,2 @@
+identifier_system;identifier_value;name_use;name_family;name_given;name_prefix;gender;gender_ext_code;gender_ext_display;birthDate;deceasedBoolean;address_type;address_line;address_city;address_postalCode;address_country
+https://www.uk-koeln.de/fhir/sid/patienten;3536710999;official;Van-der-Dussen;Samer;Herr;other;D;divers;1998-09-19;false;both;Anna-Louisa-Karsch Str. 2;Berlin;10178;DE
