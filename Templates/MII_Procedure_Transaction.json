@@ -1,0 +1,32 @@
+{
+  "resourceType" : "Bundle",
+  "type" : "transaction",
+  "entry" : [
+    {
+      "resource" : {
+        "resourceType": "Procedure",
+        "meta": {
+            "profile":  [
+                "https://www.medizininformatik-initiative.de/fhir/core/modul-prozedur/StructureDefinition/Procedure"
+            ]
+        },
+        "status": "completed",
+        "code": {
+            "coding":  [
+                {
+                    "system": "http://fhir.de/CodeSystem/bfarm/ops",
+                    "version": "2020",
+                    "code": "5-470"
+                }
+            ]
+        },
+        "performedDateTime": "2020-04-23",
+        "subject": "Patient/123"
+    },
+      "request" : {
+        "method" : "POST",
+        "url" : "Procedure"
+      }
+    }
+  ]
+}
