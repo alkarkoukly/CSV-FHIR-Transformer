@@ -1,0 +1,214 @@
+{
+	"info": {
+		"_postman_id": "f41f0a70-edc5-472b-aa49-8058ae6f5aac",
+		"name": "DMEA Workshop",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "10093765"
+	},
+	"item": [
+		{
+			"name": "HAPI Public - Patient",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://hapi.fhir.org/baseR4/Patient",
+					"protocol": "http",
+					"host": [
+						"hapi",
+						"fhir",
+						"org"
+					],
+					"path": [
+						"baseR4",
+						"Patient"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Firely Public - Patient",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://server.fire.ly/Patient",
+					"protocol": "https",
+					"host": [
+						"server",
+						"fire",
+						"ly"
+					],
+					"path": [
+						"Patient"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "HAPI Local - Patient",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/fhir/Patient",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"fhir",
+						"Patient"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Firely Public - Transaction Bundle",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"resourceType\" : \"Bundle\",\r\n  \"type\" : \"transaction\",\r\n  \"entry\" : [\r\n    {\r\n      \"resource\" : {\r\n        \"resourceType\" : \"Patient\",\r\n        \"identifier\" : [\r\n          {\r\n            \"value\" : \"927252932\"\r\n          }\r\n        ],\r\n        \"active\" : true,\r\n        \"name\" : [\r\n          {\r\n            \"use\" : \"official\",\r\n            \"family\" : \"Samer\",\r\n            \"given\" : [\r\n              \"Samer\"\r\n            ]\r\n          }\r\n        ],\r\n        \"gender\" : \"male\",\r\n        \"birthDate\" : \"1956-06-01\"\r\n      },\r\n      \"request\" : {\r\n        \"method\" : \"POST\",\r\n        \"url\" : \"Patient\"\r\n      }\r\n    }\r\n  ]\r\n}"
+				},
+				"url": {
+					"raw": "https://server.fire.ly/",
+					"protocol": "https",
+					"host": [
+						"server",
+						"fire",
+						"ly"
+					],
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "HAPI Local - Transaction Bundle",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"resourceType\" : \"Bundle\",\r\n  \"type\" : \"transaction\",\r\n  \"entry\" : [\r\n    {\r\n      \"resource\" : {\r\n        \"resourceType\" : \"Patient\",\r\n        \"identifier\" : [\r\n          {\r\n            \"value\" : \"927252932\"\r\n          }\r\n        ],\r\n        \"active\" : true,\r\n        \"name\" : [\r\n          {\r\n            \"use\" : \"official\",\r\n            \"family\" : \"Samer\",\r\n            \"given\" : [\r\n              \"Samer\"\r\n            ]\r\n          }\r\n        ],\r\n        \"gender\" : \"male\",\r\n        \"birthDate\" : \"1956-06-01\"\r\n      },\r\n      \"request\" : {\r\n        \"method\" : \"POST\",\r\n        \"url\" : \"Patient\"\r\n      }\r\n    }\r\n  ]\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/fhir/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"fhir",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "HAPI Public - Transaction Bundle",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"resourceType\" : \"Bundle\",\r\n  \"type\" : \"transaction\",\r\n  \"entry\" : [\r\n    {\r\n      \"resource\" : {\r\n        \"resourceType\" : \"Patient\",\r\n        \"identifier\" : [\r\n          {\r\n            \"value\" : \"927252932\"\r\n          }\r\n        ],\r\n        \"active\" : true,\r\n        \"name\" : [\r\n          {\r\n            \"use\" : \"official\",\r\n            \"family\" : \"Samer\",\r\n            \"given\" : [\r\n              \"Samer\"\r\n            ]\r\n          }\r\n        ],\r\n        \"gender\" : \"male\",\r\n        \"birthDate\" : \"1956-06-01\"\r\n      },\r\n      \"request\" : {\r\n        \"method\" : \"POST\",\r\n        \"url\" : \"Patient\"\r\n      }\r\n    }\r\n  ]\r\n}"
+				},
+				"url": {
+					"raw": "http://hapi.fhir.org/baseR4/",
+					"protocol": "http",
+					"host": [
+						"hapi",
+						"fhir",
+						"org"
+					],
+					"path": [
+						"baseR4",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Firely Public - Patient from Encounter identifier",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://server.fire.ly/Patient?_has:Encounter:patient:identifier=1714087226",
+					"protocol": "https",
+					"host": [
+						"server",
+						"fire",
+						"ly"
+					],
+					"path": [
+						"Patient"
+					],
+					"query": [
+						{
+							"key": "_has:Encounter:patient:identifier",
+							"value": "1714087226"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Firely Public - Condition from Patient identifier",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://server.fire.ly/Condition?patient.identifier=3536710999",
+					"protocol": "https",
+					"host": [
+						"server",
+						"fire",
+						"ly"
+					],
+					"path": [
+						"Condition"
+					],
+					"query": [
+						{
+							"key": "patient.identifier",
+							"value": "3536710999"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
