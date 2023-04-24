@@ -1,0 +1,36 @@
+{
+  "resourceType" : "Bundle",
+  "type" : "transaction",
+  "entry" : [
+    {
+      "resource" : {
+        "resourceType": "Condition",
+        "meta": {
+            "profile":  [
+                "https://www.medizininformatik-initiative.de/fhir/core/modul-diagnose/StructureDefinition/Diagnose"
+            ]
+        },
+        "code": {
+            "coding":  [
+                {
+                    "system": "http://fhir.de/CodeSystem/bfarm/icd-10-gm",
+                    "version": "2020",
+                    "code": "A54.4"
+                }
+            ]
+        },
+        "subject": {
+            "reference": "Patient/12345"
+        },
+        "encounter": {
+            "reference": "Patient/12345"
+        },
+        "recordedDate": "2020-01-05T12:53:00+01:00"
+    },
+      "request" : {
+        "method" : "POST",
+        "url" : "Condition"
+      }
+    }
+  ]
+}
